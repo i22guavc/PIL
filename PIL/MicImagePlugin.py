@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: MicImagePlugin.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # Microsoft Image Composer support for PIL
 #
@@ -19,6 +19,7 @@
 
 __version__ = "0.1"
 
+import string
 
 import Image, TiffImagePlugin
 from OleFileIO import *

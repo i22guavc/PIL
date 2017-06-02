@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ExifTags.py 2631 2006-02-12 23:41:52Z fredrik $
 #
 # EXIF tags
 #

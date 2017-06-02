@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageEnhance.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # image enhancement classes
 #
@@ -9,8 +9,7 @@
 # at http://www.sgi.com/grafica/interp/index.html
 #
 # History:
-# 1996-03-23 fl  Created
-# 2009-06-16 fl  Fixed mean calculation
+#       96-03-23 fl     Created
 #
 # Copyright (c) Secret Labs AB 1997.
 # Copyright (c) Fredrik Lundh 1996.
@@ -18,7 +17,7 @@
 # See the README file for information on usage and redistribution.
 #
 
-import Image, ImageFilter, ImageStat
+import Image, ImageFilter
 
 class _Enhance:
 
@@ -54,13 +53,13 @@ class Color(_Enhance):
 # <p>
 # This class can be used to control the contrast of an image, similar
 # to the contrast control on a TV set.  An enhancement factor of 0.0
-# gives a solid grey image, factor 1.0 gives the original image.
+# gives an solid grey image, factor 1.0 gives the original image.
 
 class Contrast(_Enhance):
     "Adjust image contrast"
     def __init__(self, image):
         self.image = image
-        mean = int(ImageStat.Stat(image.convert("L")).mean[0] + 0.5)
+        mean = reduce(lambda a,b: a+b, image.convert("L").histogram())/256.0
         self.degenerate = Image.new("L", image.size, mean).convert(image.mode)
 
 ##

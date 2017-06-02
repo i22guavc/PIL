@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageTransform.py 2813 2006-10-07 10:11:35Z fredrik $
 #
 # transform wrappers
 #
@@ -15,15 +15,11 @@
 
 import Image
 
-class Transform(Image.ImageTransformHandler):
+class Transform:
     def __init__(self, data):
         self.data = data
     def getdata(self):
         return self.method, self.data
-    def transform(self, size, image, **options):
-        # can be overridden
-        method, data = self.getdata()
-        return image.transform(size, method, data, **options)
 
 ##
 # Define an affine image transform.

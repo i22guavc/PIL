@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageGL.py 2438 2005-05-25 21:09:48Z Fredrik $
 #
 # OpenGL pixmap/texture interface (requires imToolkit OpenGL extensions)
 #

@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: CurImagePlugin.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # Windows Cursor support for PIL
 #
@@ -18,6 +18,8 @@
 
 
 __version__ = "0.1"
+
+import string
 
 import Image, BmpImagePlugin
 

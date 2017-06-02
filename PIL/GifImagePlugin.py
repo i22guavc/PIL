@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: GifImagePlugin.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # GIF file handling
 #
@@ -162,9 +162,7 @@ class GifImageFile(ImageFile.ImageFile):
                     #
                     self.info["extension"] = block, self.fp.tell()
                     if block[:11] == "NETSCAPE2.0":
-                        block = self.data()
-                        if len(block) >= 3 and ord(block[0]) == 1:
-                            self.info["loop"] = i16(block[1:3])
+                        self.info["loop"] = 1 # FIXME
                 while self.data():
                     pass
 

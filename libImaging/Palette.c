@@ -1,6 +1,6 @@
 /*
  * The Python Imaging Library
- * $Id$
+ * $Id: Palette.c 2591 2005-12-08 21:25:29Z fredrik $
  *
  * imaging palette object
  *
@@ -290,7 +290,7 @@ ImagingPaletteCachePrepare(ImagingPalette palette)
 
 	palette->cache = (INT16*) malloc(entries * sizeof(INT16));
 	if (!palette->cache) {
-	    (void) ImagingError_MemoryError();
+	    ImagingError_MemoryError();
 	    return -1;
 	}
 

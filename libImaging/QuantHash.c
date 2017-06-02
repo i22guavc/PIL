@@ -1,6 +1,6 @@
 /*
  * The Python Imaging Library
- * $Id$
+ * $Id: QuantHash.c 2134 2004-10-06 08:55:20Z fredrik $
  *
  * hash tables used by the image quantizer
  *
@@ -44,9 +44,7 @@ typedef struct _IntHashTable {
 #define RESIZE_FACTOR 3
 
 static int _hashtable_insert_node(IntHashTable *,IntHashNode *,int,int,CollisionFunc);
-#if 0
 static int _hashtable_test(IntHashTable *);
-#endif
 
 HashTable hashtable_new(HashFunc hf,HashCmpFunc cf) {
    IntHashTable *h;
@@ -135,7 +133,6 @@ static void _hashtable_resize(IntHashTable *h) {
    }
 }
 
-#if 0
 static int _hashtable_test(IntHashTable *h) {
    unsigned long i;
    int j;
@@ -149,7 +146,6 @@ static int _hashtable_test(IntHashTable *h) {
    }
    return 0;
 }
-#endif
 
 static int _hashtable_insert_node(IntHashTable *h,IntHashNode *node,int resize,int update,CollisionFunc cf) {
    unsigned long hash=h->hashFunc((HashTable)h,node->key)%h->length;

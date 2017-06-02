@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: FliImagePlugin.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # FLI/FLC file handling.
 #

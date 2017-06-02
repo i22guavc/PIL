@@ -1,7 +1,6 @@
-# -*- coding: iso-8859-1 -*-
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: WalImageFile.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # WAL file handling
 #

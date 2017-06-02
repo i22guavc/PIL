@@ -1,6 +1,6 @@
 #
 # Python Imaging Library
-# $Id$
+# $Id: GimpPaletteFile.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # stuff to read GIMP palette files
 #

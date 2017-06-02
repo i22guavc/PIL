@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageQt.py 2741 2006-06-18 16:17:20Z fredrik $
 #
 # a simple Qt image interface.
 #

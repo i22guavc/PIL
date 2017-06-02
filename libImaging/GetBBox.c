@@ -1,6 +1,6 @@
 /* 
  * The Python Imaging Library
- * $Id$
+ * $Id: GetBBox.c 2298 2005-02-17 21:17:29Z fredrik $
  *
  * helpers to bounding boxes, min/max values, number of colors, etc.
  *
@@ -113,7 +113,7 @@ ImagingGetExtrema(Imaging im, void *extrema)
     FLOAT32 fmin, fmax;
 
     if (im->bands != 1) {
-	(void) ImagingError_ModeError();
+        ImagingError_ModeError();
         return -1; /* mismatch */
     }
 
@@ -181,7 +181,7 @@ ImagingGetExtrema(Imaging im, void *extrema)
       }
       /* FALL THROUGH */
     default:
-	(void) ImagingError_ModeError();
+        ImagingError_ModeError();
         return -1;
     }
     return 1; /* ok */
@@ -239,15 +239,21 @@ getcolors32(Imaging im, int maxcolors, int* size)
     /* printf("code_size=%d\n", code_size); */
     /* printf("code_poly=%d\n", code_poly); */
 
-    if (!code_size)
-	return ImagingError_MemoryError(); /* just give up */
+    if (!code_size) {
+	ImagingError_MemoryError(); /* just give up */
+        return NULL;
+    }
 
-    if (!im->image32)
-	return ImagingError_ModeError();
+    if (!im->image32) {
+        ImagingError_ModeError();
+        return NULL;
+    }
 
     table = calloc(code_size + 1, sizeof(ImagingColorItem));
-    if (!table)
-	return ImagingError_MemoryError();
+    if (!table) {
+	ImagingError_MemoryError();
+        return NULL;
+    }
 
     pixel_mask = 0xffffffff;
     if (im->bands == 3)

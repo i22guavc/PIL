@@ -1,6 +1,6 @@
 /* 
  * The Python Imaging Library
- * $Id$
+ * $Id: Bands.c 2134 2004-10-06 08:55:20Z fredrik $
  * 
  * stuff to extract and paste back individual bands
  *

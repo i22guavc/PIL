@@ -1,6 +1,6 @@
 /*
  * The Python Imaging Library
- * $Id$
+ * $Id: Filter.c 2134 2004-10-06 08:55:20Z fredrik $
  *
  * apply convolution kernel to image
  *
@@ -81,9 +81,6 @@ ImagingFilter(Imaging im, int xsize, int ysize, const FLOAT32* kernel,
 
     if (!im || strcmp(im->mode, "L") != 0)
 	return (Imaging) ImagingError_ModeError();
-
-    if (im->xsize < xsize || im->ysize < ysize)
-        return ImagingCopy(im);
 
     if ((xsize != 3 && xsize != 5) || xsize != ysize)
 	return (Imaging) ImagingError_ValueError("bad kernel size");

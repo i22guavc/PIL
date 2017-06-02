@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library
-# $Id$
+# $Id: painter.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # this demo script illustrates pasting into an already displayed
 # photoimage.  note that the current version of Tk updates the whole
@@ -9,7 +9,7 @@
 #
 
 from Tkinter import *
-from PIL import Image, ImageTk
+import Image, ImageTk
 import sys
 
 #

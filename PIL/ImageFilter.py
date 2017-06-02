@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageFilter.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # standard filters
 #
@@ -78,8 +78,6 @@ class RankFilter(Filter):
         self.rank = rank
 
     def filter(self, image):
-        if image.mode == "P":
-            raise ValueError("cannot filter palette images")
         image = image.expand(self.size/2, self.size/2)
         return image.rankfilter(self.size, self.rank)
 
@@ -151,31 +149,7 @@ class ModeFilter(Filter):
         return image.modefilter(self.size)
 
 ##
-# Gaussian blur filter.
-
-class GaussianBlur(Filter):
-    name = "GaussianBlur"
-
-    def __init__(self, radius=2):
-        self.radius = 2
-    def filter(self, image):
-        return image.gaussian_blur(self.radius)
-
-##
-# Unsharp mask filter.
-
-class UnsharpMask(Filter):
-    name = "UnsharpMask"
-
-    def __init__(self, radius=2, percent=150, threshold=3):
-        self.radius = 2
-        self.percent = percent
-        self.threshold = threshold
-    def filter(self, image):
-        return image.unsharp_mask(self.radius, self.percent, self.threshold)
-
-##
-# Simple blur filter.
+# Blur filter.
 
 class BLUR(BuiltinFilter):
     name = "Blur"
@@ -188,7 +162,7 @@ class BLUR(BuiltinFilter):
         )
 
 ##
-# Simple contour filter.
+# Contour filter.
 
 class CONTOUR(BuiltinFilter):
     name = "Contour"
@@ -199,7 +173,7 @@ class CONTOUR(BuiltinFilter):
         )
 
 ##
-# Simple detail filter.
+# Detail filter.
 
 class DETAIL(BuiltinFilter):
     name = "Detail"
@@ -210,7 +184,7 @@ class DETAIL(BuiltinFilter):
         )
 
 ##
-# Simple edge enhancement filter.
+# Edge enhancement filter.
 
 class EDGE_ENHANCE(BuiltinFilter):
     name = "Edge-enhance"
@@ -221,7 +195,7 @@ class EDGE_ENHANCE(BuiltinFilter):
         )
 
 ##
-# Simple stronger edge enhancement filter.
+# Stronger edge enhancement filter.
 
 class EDGE_ENHANCE_MORE(BuiltinFilter):
     name = "Edge-enhance More"
@@ -232,7 +206,7 @@ class EDGE_ENHANCE_MORE(BuiltinFilter):
         )
 
 ##
-# Simple embossing filter.
+# Embossing filter.
 
 class EMBOSS(BuiltinFilter):
     name = "Emboss"
@@ -243,7 +217,7 @@ class EMBOSS(BuiltinFilter):
         )
 
 ##
-# Simple edge-finding filter.
+# Edge-finding filter.
 
 class FIND_EDGES(BuiltinFilter):
     name = "Find Edges"
@@ -254,7 +228,7 @@ class FIND_EDGES(BuiltinFilter):
         )
 
 ##
-# Simple smoothing filter.
+# Smoothing filter.
 
 class SMOOTH(BuiltinFilter):
     name = "Smooth"
@@ -265,7 +239,7 @@ class SMOOTH(BuiltinFilter):
         )
 
 ##
-# Simple stronger smoothing filter.
+# Stronger smoothing filter.
 
 class SMOOTH_MORE(BuiltinFilter):
     name = "Smooth More"
@@ -278,7 +252,7 @@ class SMOOTH_MORE(BuiltinFilter):
         )
 
 ##
-# Simple sharpening filter.
+# Sharpening filter.
 
 class SHARPEN(BuiltinFilter):
     name = "Sharpen"

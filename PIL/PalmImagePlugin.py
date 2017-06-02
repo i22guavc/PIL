@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: PalmImagePlugin.py 2438 2005-05-25 21:09:48Z Fredrik $
 #
 
 ##
@@ -10,6 +10,7 @@
 __version__ = "1.0"
 
 import Image, ImageFile
+import StringIO
 
 _Palm8BitColormapValues = (
     ( 255, 255, 255 ), ( 255, 204, 255 ), ( 255, 153, 255 ), ( 255, 102, 255 ),

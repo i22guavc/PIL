@@ -1,6 +1,6 @@
 /*
  * The Python Imaging Library
- * $Id$
+ * $Id: RankFilter.c 2929 2006-11-22 21:12:55Z fredrik $
  *
  * min, max, median filters
  *

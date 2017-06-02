@@ -1,6 +1,6 @@
 #
 # Python Imaging Library
-# $Id$
+# $Id: PaletteFile.py 2134 2004-10-06 08:55:20Z fredrik $
 #
 # stuff to read simple, teragon-style palette files
 #
@@ -32,8 +32,6 @@ class PaletteFile:
 
             if not s:
                 break
-            if s[0] == "#":
-                continue
             if len(s) > 100:
                 raise SyntaxError, "bad palette file"
 

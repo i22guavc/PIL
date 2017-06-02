@@ -1,6 +1,6 @@
 /* 
  * The Python Imaging Library
- * $Id$
+ * $Id: Chops.c 2506 2005-09-10 14:52:13Z Fredrik $
  *
  * basic channel operations
  *

@@ -1,6 +1,6 @@
 /*
  * The Python Imaging Library
- * $Id$
+ * $Id: Quant.c 2284 2005-02-07 20:58:58Z fredrik $
  *
  * image quantizer
  *
@@ -306,7 +306,6 @@ mergesort_pixels(PixelList *head, int i)
    return head;
 }
 
-#if defined(TEST_MERGESORT) || defined(TEST_SORTED)
 static int
 test_sorted(PixelList *pl[3])
 {
@@ -323,7 +322,6 @@ test_sorted(PixelList *pl[3])
    }
    return 1;
 }
-#endif
 
 static int
 box_heap_cmp(const Heap h, const void *A, const void *B)
@@ -655,8 +653,8 @@ median_cut(PixelList *hl[3],
       ImagingQuantHeapAdd(h,(void *)(thisNode->l));
       ImagingQuantHeapAdd(h,(void *)(thisNode->r));
    }
-done:
    ImagingQuantHeapFree(h);
+done:
    return root;
 }
 
@@ -673,7 +671,6 @@ free_box_tree(BoxNode *n)
    free(n);
 }
 
-#ifdef TEST_SPLIT_INTEGRITY
 static int
 checkContained(BoxNode *n,Pixel *pp)
 {
@@ -697,7 +694,6 @@ checkContained(BoxNode *n,Pixel *pp)
    }
    return 0;
 }
-#endif
 
 static int
 annotate_hash_table(BoxNode *n,HashTable h,unsigned long *box)

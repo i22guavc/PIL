@@ -1,6 +1,6 @@
 #
 # The Python Imaging Library.
-# $Id$
+# $Id: ImageFile.py 2930 2006-12-02 13:50:40Z fredrik $
 #
 # base class for image file handlers
 #
@@ -28,7 +28,7 @@
 #
 
 import Image
-import traceback, string, os
+import traceback, sys, string, os
 
 MAXBLOCK = 65536
 
@@ -41,15 +41,6 @@ ERRORS = {
     -8: "bad configuration",
     -9: "out of memory error"
 }
-
-def raise_ioerror(error):
-    try:
-        message = Image.core.getcodecstatus(error)
-    except AttributeError:
-        message = ERRORS.get(error)
-    if not message:
-        message = "decoder error %d" % error
-    raise IOError(message + " when reading image file")
 
 #
 # --------------------------------------------------------------------
@@ -212,7 +203,8 @@ class ImageFile(Image.Image):
         self.fp = None # might be shared
 
         if not self.map and e < 0:
-            raise_ioerror(e)
+            error = ERRORS.get(e, "decoder error %d" % e)
+            raise IOError(error + " when reading image file")
 
         # post processing
         if hasattr(self, "tile_post_rotate"):
@@ -380,7 +372,8 @@ class Parser:
                 if e < 0:
                     # decoding error
                     self.image = None
-                    raise_ioerror(e)
+                    error = ERRORS.get(e, "decoder error %d" % e)
+                    raise IOError(error + " when reading image file")
                 else:
                     # end of image
                     return
@@ -450,7 +443,6 @@ class Parser:
                 fp = _ParserFile(self.data)
                 self.image = Image.open(fp)
             finally:
-                self.image.load()
                 fp.close() # explicitly close the virtual file
         return self.image
 
